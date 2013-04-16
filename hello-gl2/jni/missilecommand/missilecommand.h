@@ -7,17 +7,17 @@ class Missilecommand
 
 public:
     Missilecommand();
-    void handleTouch(int, int);
+    void handleTouch(float, float);
     void updateGame();
     int getPointsPerCity();
     int getNumCities();
-    //int getNumBodies();
+    int getNumBodies();
     City* getCity(int i);
-    //cpBody* getBody(int i);
+    cpBody* getBody(int i);
     
 private:
     std::vector<City*> cities;
-    //std::vector<cpBody*> cpBodies;
+    std::vector<cpBody*> cpBodies;
 };
 
 

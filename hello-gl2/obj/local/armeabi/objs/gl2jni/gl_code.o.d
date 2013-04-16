@@ -1,4 +1,5 @@
-obj/local/armeabi/objs/gl2jni/gl_code.o: jni/gl_code.cpp \
+/home/jvarley/android-ndk-r8e/samples/android-ndk/hello-gl2/obj/local/armeabi/objs/gl2jni/gl_code.o: \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/gl_code.cpp \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/jni.h \
  /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stdarg.h \
  /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/_cprolog.h \
@@ -55,28 +56,29 @@ obj/local/armeabi/objs/gl2jni/gl_code.o: jni/gl_code.cpp \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/machine/limits.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/sys/syslimits.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/asm/page.h \
- jni/missilecommand/missilecommand.h jni/missilecommand/city.h \
- jni/missilecommand/../chipmunk/include/chipmunk/chipmunk.h \
- jni/missilecommand/../chipmunk/include/chipmunk/chipmunk_types.h \
- jni/missilecommand/../chipmunk/include/chipmunk/cpVect.h \
- jni/missilecommand/../chipmunk/include/chipmunk/cpBB.h \
- jni/missilecommand/../chipmunk/include/chipmunk/cpSpatialIndex.h \
- jni/missilecommand/../chipmunk/include/chipmunk/cpBody.h \
- jni/missilecommand/../chipmunk/include/chipmunk/cpShape.h \
- jni/missilecommand/../chipmunk/include/chipmunk/cpPolyShape.h \
- jni/missilecommand/../chipmunk/include/chipmunk/cpArbiter.h \
- jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpConstraint.h \
- jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpPinJoint.h \
- jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpSlideJoint.h \
- jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpPivotJoint.h \
- jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpGrooveJoint.h \
- jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpDampedSpring.h \
- jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpDampedRotarySpring.h \
- jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpRotaryLimitJoint.h \
- jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpRatchetJoint.h \
- jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpGearJoint.h \
- jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpSimpleMotor.h \
- jni/missilecommand/../chipmunk/include/chipmunk/cpSpace.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/missilecommand.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/city.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/chipmunk.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/chipmunk_types.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/cpVect.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/cpBB.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/cpSpatialIndex.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/cpBody.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/cpShape.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/cpPolyShape.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/cpArbiter.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpConstraint.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpPinJoint.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpSlideJoint.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpPivotJoint.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpGrooveJoint.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpDampedSpring.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpDampedRotarySpring.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpRotaryLimitJoint.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpRatchetJoint.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpGearJoint.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpSimpleMotor.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/cpSpace.h \
  /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/vector \
  /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/_prolog.h \
  /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/debug/_debug.h \
@@ -225,51 +227,51 @@ obj/local/armeabi/objs/gl2jni/gl_code.o: jni/gl_code.cpp \
 
 /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/asm/page.h:
 
-jni/missilecommand/missilecommand.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/missilecommand.h:
 
-jni/missilecommand/city.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/city.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/chipmunk.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/chipmunk.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/chipmunk_types.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/chipmunk_types.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/cpVect.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/cpVect.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/cpBB.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/cpBB.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/cpSpatialIndex.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/cpSpatialIndex.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/cpBody.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/cpBody.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/cpShape.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/cpShape.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/cpPolyShape.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/cpPolyShape.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/cpArbiter.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/cpArbiter.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpConstraint.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpConstraint.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpPinJoint.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpPinJoint.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpSlideJoint.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpSlideJoint.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpPivotJoint.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpPivotJoint.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpGrooveJoint.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpGrooveJoint.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpDampedSpring.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpDampedSpring.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpDampedRotarySpring.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpDampedRotarySpring.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpRotaryLimitJoint.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpRotaryLimitJoint.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpRatchetJoint.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpRatchetJoint.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpGearJoint.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpGearJoint.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpSimpleMotor.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/constraints/cpSimpleMotor.h:
 
-jni/missilecommand/../chipmunk/include/chipmunk/cpSpace.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/cpSpace.h:
 
 /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/vector:
 

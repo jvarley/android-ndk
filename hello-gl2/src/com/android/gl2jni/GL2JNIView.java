@@ -111,6 +111,7 @@ class GL2JNIView extends GLSurfaceView {
     public boolean onTouchEvent(MotionEvent e) {
         float x = e.getX();
         float y = e.getY();
+        Log.w("myApp","touch event at:" +  String.valueOf(e.getX())+ " " +String.valueOf(e.getY()));
         GL2JNILib.handleTouch(x,y);
         return true;
     }
@@ -337,6 +338,7 @@ class GL2JNIView extends GLSurfaceView {
         }
 
         public void onSurfaceChanged(GL10 gl, int width, int height) {
+        	Log.w("myApp","init with width and hegiht:" +  String.valueOf(width)+ " " +String.valueOf(height));
             GL2JNILib.init(width, height);
         }
 

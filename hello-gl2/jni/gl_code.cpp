@@ -156,7 +156,7 @@ bool setupGraphics(int w, int h) {
 
 
 
-GLfloat gTriangleVertices[] = { 0.0f, 0.0f,0.0f, 0.0f, 0.0f,0.0f,
+GLfloat gTriangleVertices1[] = { 0.0f, 0.0f,0.0f, 0.0f, 0.0f,0.0f,
                                 0.0f, 0.0f,0.0f, 0.0f, 0.0f,0.0f,
                                 0.0f, 0.0f,0.0f, 0.0f, 0.0f,0.0f };
 
@@ -172,27 +172,39 @@ void renderFrame() {
     City* city2 = mc.getCity(1);
     City* city3 = mc.getCity(2);
 
-    //int  pointsPerCity = mc.getPointsPerCity();
+    int  pointsPerCity = mc.getPointsPerCity();
 
-    //GLfloat gTriangleVertices[12];
 
-    //int numCities = mc.getNumCities();
-    //int numPlanets = mc.getNumBodies();
 
-    //int index = 0;
-    // for (int j = 0; j< numCities;j++){
-    //     for(int i=0; i < pointsPerCity;i++){
-    //         gTriangleVertices[index] = mc.getCity(j)->getVertices()[i];
-    //         index++;
-    //     }
-    //  }
+    int numCities = mc.getNumCities();
+    int numPlanets = mc.getNumBodies();
 
-    // for (int j = 0; j< numPlanets;j++){
-    //     gTriangleVertices[index] = mc.getBody(j)->p.x;
-    //     index++;
-    //     gTriangleVertices[index] = mc.getBody(j)->p.y;
-    //     index++;
-    //  }
+    GLfloat gTriangleVertices[pointsPerCity*(numCities+numPlanets)];
+
+    int index = 0;
+    for (int j = 0; j< numCities;j++){
+        for(int i=0; i < pointsPerCity;i++){
+            gTriangleVertices[index] = mc.getCity(j)->getVertices()[i];
+            index++;
+        }
+     }
+
+    for (int j = 0; j<  numPlanets;j++){
+        gTriangleVertices[index] = mc.getBody(j)->p.x*2.0/WIDTH - 1.0;
+        index++;
+        gTriangleVertices[index] = -mc.getBody(j)->p.y*2.0/HEIGHT +1.0;
+        index++;
+
+        gTriangleVertices[index] = mc.getBody(j)->p.x*2.0/WIDTH - 1.0 + .2;
+        index++;
+        gTriangleVertices[index] = -mc.getBody(j)->p.y*2.0/HEIGHT +1.0;
+        index++;
+
+        gTriangleVertices[index] = mc.getBody(j)->p.x*2.0/WIDTH - 1.0;
+        index++;
+        gTriangleVertices[index] = -mc.getBody(j)->p.y*2.0/HEIGHT +1.0 + .2;
+        index++;
+     }
 
 
     
@@ -212,10 +224,10 @@ void renderFrame() {
 
 
     //each triangle is 3 indexes
-    // glDrawArrays(
-    //     GL_TRIANGLES,// enum of what to draw
-    //     0, //starting index
-    //     9);//number of indexes to draw.
+    glDrawArrays(
+        GL_TRIANGLES,// enum of what to draw
+        0, //starting index
+        3*(numCities+numPlanets));//number of indexes to draw.
 
     checkGlError("glDrawArrays");
 
