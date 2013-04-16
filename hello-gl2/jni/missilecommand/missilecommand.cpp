@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include "../chipmunk/include/chipmunk/chipmunk.h"
-//#include "../../../chipmunk.h"
+
 using namespace std;
 
 int POINTS_PER_CITY = 6;
@@ -10,65 +10,70 @@ cpSpace *space = cpSpaceNew();
 
 Missilecommand::Missilecommand()
 {
-
-
-
-    City* city1 = new City();
-    City* city2 = new City();
-    City* city3 = new City();
-
-    GLfloat cityVertices1[] = {-0.2f,  0.0f, -0.3f,  0.0f, -0.25f, 0.1f };
-    GLfloat cityVertices2[] = { 0.05f, 0.0f, -0.05f, 0.0f,  0.0f,  0.1f };
-    GLfloat cityVertices3[] = { 0.2f,  0.0f,  0.3f,  0.0f,  0.25f, 0.1f };
-    //GLfloat cityVertices3[] = { 0.5f,  0.5f,  0.5f,  -0.5f,  0.0f, 0.0f };
-
-    for(int i= 0; i < POINTS_PER_CITY; i++){
-        city1->setVertices(cityVertices1[i],i);
-        city2->setVertices(cityVertices2[i],i);
-        city3->setVertices(cityVertices3[i],i);
-    }
-
-    cities.push_back(city1);
-    cities.push_back(city2);
-    cities.push_back(city3);
-    //cpSpaceSetGravity(space, cpv(0, -100));
+    hasSpaceman1 = false;
+    hasFired = false;
 
 }
 
-void Missilecommand::updateGame() {
-    City* city= cities.at(1);
-    float value = city->getVertices()[0];
-    value += .01;
-    if (value > 1){
-        value = 0;
-    }
-    city->getVertices()[0] = value;
-    cpSpaceStep(space, 1.0f/60.0f);
-}
-void Missilecommand::handleTouch(float x, float y) {
-    City* city= cities.at(1);
-    float value =0;
-    city->getVertices()[0] = value;
+void Missilecommand::fire(float velocity)
+{
 
-    cpBody* planetBody= cpBodyNew(10, 10);
+    cpBodySetVel(spaceman, {velocity,0});
+    hasFired = true;
+
+}
+
+void Missilecommand::createGame() {
+    cpBody* planetBody= cpBodyNew(10,10);
     //cpBody* planetBody= cpBodyNew(INFINITY, INFINITY);
     cpBodySetAngVel(planetBody, 0.2f);
-    float xf = x;
-    float yf = y;
+    float xf = 240;
+    float yf = 400;
     cpVect p = {xf,yf};
     cpBodySetPos(planetBody,p );
-
-    //cpVect vel = {0.01,0.1};
-    //cpBodySetVel(planetBody,vel );
 
     cpSpaceAddBody(space,planetBody);
 
     cpBodies.push_back(planetBody);
+
+
+    cpBody* spacemanBody= cpBodyNew(10,10);
+    cpBodySetAngVel(spacemanBody, 0.2f);
+    float spaceManxf = 200.0;
+    float spaceManyf = 200.0;
+    cpVect pSpaceMan = {spaceManxf,spaceManyf};
+    cpBodySetPos(spacemanBody,pSpaceMan );
+    cpSpaceAddBody(space,spacemanBody);
+    cpBodySetVelLimit(spacemanBody, 1000.0);
+
+
+    spaceman = spacemanBody;
+    hasSpaceman1 = true;
 }
 
-int Missilecommand::getNumCities() {
-    return cities.size();
+void Missilecommand::updateGame() {
+    if(hasSpaceman1 && hasFired){
+        cpBodyApplyImpulse(spaceman, getImpulseOnSpaceman(),{0,0});
+    }
+    
+    cpSpaceStep(space, 1.0f/60.0f);
 }
+
+cpVect Missilecommand::getImpulseOnSpaceman(){
+    cpVect impulse = {0.0,0.0};
+    for(int j =0; j < getNumBodies(); j++){
+        cpBody* body = getBody(j);
+        cpVect delta = cpvsub(spaceman->p,body->p);
+        cpFloat sqdist = cpvlengthsq(delta);
+        impulse = cpvadd(impulse, cpvmult(delta,-200000.0/(sqdist*cpfsqrt(sqdist))));
+    }
+    return impulse;
+}
+void Missilecommand::handleTouch(float x, float y) {
+
+    
+}
+
 
 int Missilecommand::getNumBodies() {
     return cpBodies.size();
@@ -78,12 +83,16 @@ int Missilecommand::getPointsPerCity() {
     return POINTS_PER_CITY;
 }
 
-City* Missilecommand::getCity(int i) {
-    return cities.at(i);
-}
-
 cpBody* Missilecommand::getBody(int i) {
     return cpBodies.at(i);
+}
+
+cpBody* Missilecommand::getSpaceman() {
+    return spaceman;
+}
+
+bool Missilecommand::hasSpaceman() {
+    return hasSpaceman1;
 }
 
 

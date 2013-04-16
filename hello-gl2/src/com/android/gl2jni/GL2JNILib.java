@@ -16,6 +16,8 @@
 
 package com.android.gl2jni;
 
+import android.graphics.Bitmap;
+
 // Wrapper for native library
 
 public class GL2JNILib {
@@ -31,4 +33,6 @@ public class GL2JNILib {
      public static native void init(int width, int height);
      public static native void step();
 	 public static native void handleTouch(float x, float y);
+	 public static native void fire(float velocity);
+	 public static native void getBitmap(Bitmap image);
 }

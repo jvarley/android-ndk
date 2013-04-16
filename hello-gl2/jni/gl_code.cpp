@@ -19,6 +19,7 @@
 
 #include <jni.h>
 #include <android/log.h>
+#include <android/bitmap.h>
 
 #include <GLES2/gl2.h>
 #include <GLES2/gl2ext.h>
@@ -36,6 +37,8 @@
 #define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
 
 Missilecommand mc;
+uint32_t  *test_pixels;
+bool hasPixels = false;
 int WIDTH;
 int HEIGHT;
 
@@ -167,27 +170,24 @@ void renderFrame() {
         grey = 0.0f;
     }
 
-   
-    City* city1 = mc.getCity(0);
-    City* city2 = mc.getCity(1);
-    City* city3 = mc.getCity(2);
 
     int  pointsPerCity = mc.getPointsPerCity();
 
 
 
-    int numCities = mc.getNumCities();
     int numPlanets = mc.getNumBodies();
+    int numSpacemen = 1;
 
-    GLfloat gTriangleVertices[pointsPerCity*(numCities+numPlanets)];
+    int numObjects = numPlanets;
+
+    if (mc.hasSpaceman())
+    {
+        numObjects += numSpacemen;
+    }
+
+    GLfloat gTriangleVertices[pointsPerCity*(numObjects)];
 
     int index = 0;
-    for (int j = 0; j< numCities;j++){
-        for(int i=0; i < pointsPerCity;i++){
-            gTriangleVertices[index] = mc.getCity(j)->getVertices()[i];
-            index++;
-        }
-     }
 
     for (int j = 0; j<  numPlanets;j++){
         gTriangleVertices[index] = mc.getBody(j)->p.x*2.0/WIDTH - 1.0;
@@ -205,6 +205,24 @@ void renderFrame() {
         gTriangleVertices[index] = -mc.getBody(j)->p.y*2.0/HEIGHT +1.0 + .2;
         index++;
      }
+
+    if (mc.hasSpaceman())
+    {
+        gTriangleVertices[index] = mc.getSpaceman()->p.x*2.0/WIDTH - 1.0;
+        index++;
+        gTriangleVertices[index] = -mc.getSpaceman()->p.y*2.0/HEIGHT +1.0;
+        index++;
+
+        gTriangleVertices[index] = mc.getSpaceman()->p.x*2.0/WIDTH - 1.0 + .2;
+        index++;
+        gTriangleVertices[index] = -mc.getSpaceman()->p.y*2.0/HEIGHT +1.0;
+        index++;
+
+        gTriangleVertices[index] = mc.getSpaceman()->p.x*2.0/WIDTH - 1.0;
+        index++;
+        gTriangleVertices[index] = -mc.getSpaceman()->p.y*2.0/HEIGHT +1.0 + .2;
+        index++;
+    }
 
 
     
@@ -227,9 +245,19 @@ void renderFrame() {
     glDrawArrays(
         GL_TRIANGLES,// enum of what to draw
         0, //starting index
-        3*(numCities+numPlanets));//number of indexes to draw.
+        3*(numObjects));//number of indexes to draw.
 
     checkGlError("glDrawArrays");
+
+    if(hasPixels)
+    {
+        int SIZE = 10;
+
+        glTexImage2D(
+        GL_TEXTURE_2D, 0, GL_RGBA, SIZE, SIZE, 0,
+        GL_RGBA, GL_UNSIGNED_BYTE, test_pixels);
+
+    }
 
 
 
@@ -241,6 +269,8 @@ extern "C" {
     JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_init(JNIEnv * env, jobject obj,  jint width, jint height);
     JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_step(JNIEnv * env, jobject obj);
     JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_handleTouch(JNIEnv * env, jobject obj,  jfloat width, jfloat height);
+    JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_fire(JNIEnv * env, jobject obj,jfloat velocity);
+    JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_getBitmap(JNIEnv * env, jobject obj,jobject bitmap);
 #ifdef __cplusplus
 };
 #endif
@@ -248,7 +278,8 @@ extern "C" {
 JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_init(JNIEnv * env, jobject obj,  jint width, jint height)
 {
     
-    setupGraphics(width, height);
+    //setupGraphics(width, height);
+    mc.createGame();
 }
 
 JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_handleTouch(JNIEnv * env, jobject obj,  jfloat x, jfloat y)
@@ -257,8 +288,36 @@ JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_handleTouch(JNIEnv * en
     
 }
 
+JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_fire(JNIEnv * env, jobject obj,jfloat velocity)
+{
+    mc.fire(velocity);
+    
+}
+
+JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_getBitmap(JNIEnv * env, jobject obj,jobject bitmap)
+{
+    // AndroidBitmapInfo  info;
+    // uint32_t          *pixels;
+    // int                ret;
+
+    // AndroidBitmap_getInfo(env, bitmap, &info);
+
+    // if(info.format != ANDROID_BITMAP_FORMAT_RGBA_8888) 
+    // {
+    //     LOGE("Bitmap format is not RGBA_8888!");
+    //     //return false;
+    // }else{
+
+    // AndroidBitmap_lockPixels(env, bitmap, reinterpret_cast<void **>(&pixels));
+
+    // // Now you can use the pixel array 'pixels', which is in RGBA format
+    // test_pixels = pixels;
+    // hasPixels = true;
+    // }
+}
+
 JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_step(JNIEnv * env, jobject obj)
 {
     mc.updateGame();
-    renderFrame();
+    //renderFrame();
 }

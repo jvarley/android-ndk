@@ -2,7 +2,7 @@
 #include <GLES2/gl2ext.h>
 
 
-class City
+class Spaceman
 {
 public:
 	void setVertices(GLfloat vertex, int i);

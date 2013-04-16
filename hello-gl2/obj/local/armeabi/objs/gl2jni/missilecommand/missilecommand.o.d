@@ -1,7 +1,7 @@
 /home/jvarley/android-ndk-r8e/samples/android-ndk/hello-gl2/obj/local/armeabi/objs/gl2jni/missilecommand/missilecommand.o: \
  /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/missilecommand.cpp \
  /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/missilecommand.h \
- /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/city.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/spaceman.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/GLES2/gl2.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/GLES2/gl2platform.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/KHR/khrplatform.h \
@@ -180,7 +180,7 @@
 
 /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/missilecommand.h:
 
-/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/city.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/spaceman.h:
 
 /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/GLES2/gl2.h:
 

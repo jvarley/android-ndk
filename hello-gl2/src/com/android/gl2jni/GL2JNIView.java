@@ -33,6 +33,9 @@ package com.android.gl2jni;
 
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.opengl.GLSurfaceView;
 import android.util.AttributeSet;
@@ -67,14 +70,17 @@ import javax.microedition.khronos.opengles.GL10;
 class GL2JNIView extends GLSurfaceView {
     private static String TAG = "GL2JNIView";
     private static final boolean DEBUG = false;
+    Context context;
 
     public GL2JNIView(Context context) {
         super(context);
+        this.context = context;
         init(false, 0, 0);
     }
 
     public GL2JNIView(Context context, boolean translucent, int depth, int stencil) {
         super(context);
+        this.context = context;
         init(translucent, depth, stencil);
     }
 
@@ -85,6 +91,8 @@ class GL2JNIView extends GLSurfaceView {
          * format here, using PixelFormat.TRANSLUCENT for GL Surfaces
          * is interpreted as any 32-bit surface with alpha by SurfaceFlinger.
          */
+    	
+		
         if (translucent) {
             this.getHolder().setFormat(PixelFormat.TRANSLUCENT);
         }
@@ -333,8 +341,10 @@ class GL2JNIView extends GLSurfaceView {
     }
 
     private static class Renderer implements GLSurfaceView.Renderer {
+
         public void onDrawFrame(GL10 gl) {
             GL2JNILib.step();
+            //gl.glCopyTexImage2D(target, level, internalformat, x, y, width, height, border);
         }
 
         public void onSurfaceChanged(GL10 gl, int width, int height) {
@@ -346,4 +356,5 @@ class GL2JNIView extends GLSurfaceView {
             // Do nothing.
         }
     }
+
 }

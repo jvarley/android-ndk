@@ -78,8 +78,8 @@ LOCAL_MODULE    := libgl2jni
 LOCAL_CFLAGS    := -Werror
 LOCAL_SHARED_LIBRARIES := chipmunk
 LOCAL_PATH:= $(call my-dir)/../../samples/android-ndk/hello-gl2/jni
-LOCAL_SRC_FILES := gl_code.cpp missilecommand/missilecommand.cpp missilecommand/city.cpp 
-LOCAL_LDLIBS    := -llog -lGLESv2 -lstdc++
+LOCAL_SRC_FILES := gl_code.cpp missilecommand/missilecommand.cpp missilecommand/spaceman.cpp 
+LOCAL_LDLIBS    := -llog -lGLESv2 -lstdc++ -ljnigraphics
 
 include $(BUILD_SHARED_LIBRARY)
 
