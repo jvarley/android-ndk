@@ -1,5 +1,4 @@
 
-#include "spaceman.h"
 #include "../chipmunk/include/chipmunk/chipmunk.h"
 #include <vector>
 class Missilecommand 
@@ -7,23 +6,28 @@ class Missilecommand
 
 public:
     Missilecommand();
-    void handleTouch(float, float);
     void updateGame();
-    void createGame();
-    void fire(float);
-    int getPointsPerCity();
+    void fire(int, int);
+    void reset();
     int getNumBodies();
     cpBody* getBody(int i);
     cpBody* getSpaceman();
-    bool hasSpaceman();
     cpVect getImpulseOnSpaceman();
+    void addBody(int x, int y, int r, int m);
+    void addEndMoon(int x, int y, int r, int m);
+    void addSpaceMan(int x, int y, int r, int m);
 
     
 private:
     std::vector<cpBody*> cpBodies;
+    std::vector<int> bodyMasses; 
+    
     cpBody* spaceman;
-    bool hasSpaceman1;
+    cpBody* endMoon;
+
     bool hasFired;
+    bool missionComplete;
+    int missionCompleteDistance;
 };
 
 

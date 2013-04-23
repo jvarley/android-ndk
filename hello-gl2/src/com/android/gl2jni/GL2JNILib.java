@@ -16,9 +16,6 @@
 
 package com.android.gl2jni;
 
-import android.graphics.Bitmap;
-
-// Wrapper for native library
 
 public class GL2JNILib {
 
@@ -26,13 +23,11 @@ public class GL2JNILib {
          System.loadLibrary("gl2jni");
      }
 
-    /**
-     * @param width the current view width
-     * @param height the current view height
-     */
-     public static native void init(int width, int height);
      public static native void step();
-	 public static native void handleTouch(float x, float y);
-	 public static native void fire(float velocity);
-	 public static native void getBitmap(Bitmap image);
+	 public static native void fire(int x, int y);
+	 public static native int[] getSpaceManPos();
+	 public static native void addBody(int xPos, int yPos, int r, int m);
+	 public static native void addEndMoon(int xPos, int yPos, int r, int m);
+	 public static native void addSpaceMan(int xPos, int yPos, int r, int m);
+	 public static native void reset();
 }

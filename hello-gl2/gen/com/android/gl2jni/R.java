@@ -12,12 +12,23 @@ public final class R {
     }
     public static final class drawable {
         public static final int been_hit_e0000=0x7f020000;
+        public static final int blackhole=0x7f020001;
+        public static final int main_menu_background=0x7f020002;
+        public static final int main_menu_background_with_text=0x7f020003;
+        public static final int mars=0x7f020004;
+        public static final int mercury=0x7f020005;
+        public static final int moon=0x7f020006;
+        public static final int planet1=0x7f020007;
+        public static final int space=0x7f020008;
+        public static final int spaceship=0x7f020009;
     }
     public static final class id {
-        public static final int textView1=0x7f050000;
+        public static final int button1=0x7f050000;
+        public static final int textView1=0x7f050001;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
+        public static final int main_menu_layout=0x7f030000;
+        public static final int score_screen_layout=0x7f030001;
     }
     public static final class string {
         /**  Simple strings. 

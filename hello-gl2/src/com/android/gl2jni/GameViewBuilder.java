@@ -1,118 +1,174 @@
 package com.android.gl2jni;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
+import android.widget.ZoomButtonsController;
 
 public class GameViewBuilder {
 
 	Context context;
 	private RelativeLayout topLevelView;
-	Button fireButton;
-	Button incVelButton;
-	Button decVelButton;
+	
+	Button zoomIn;
+	Button zoomOut;
+	Button resetShip;
+	
+	GameEngineView gameEngineView;
+	
 	TextView velTextView;
 	
-	public float velocity = 80;
 
 	public GameViewBuilder(Context context) {
 		this.context = context;
 		
-		
 		topLevelView = new RelativeLayout(context);
 		
-		this.fireButton = createFireButton();
-		this.incVelButton = createNewIncVelButton();
-		this.decVelButton = createNewDecVelButton();
+
+		this.zoomIn = createNewZoomInButton();
+		this.zoomOut = createNewZoomOutButton();
+		this.resetShip = createResetShipButton();
+
+		
+		
+
+		gameEngineView = new GameEngineView(context);
 		this.velTextView = createNewVelTextView();
-		
+		gameEngineView.setBackgroundResource(R.drawable.space);
+		gameEngineView.setOnTouchListener(new View.OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				int x = (int) event.getX();
+				int y = (int) event.getY();
+				int centerX = (int) (v.getWidth()/2.0);
+				int centerY = (int)(v.getHeight()/2.0);
+				
+				switch (event.getAction()){
+				case MotionEvent.ACTION_UP:
 
-		GameEngineView gameEngineView = new GameEngineView(context);
-		gameEngineView.setBackgroundResource(R.drawable.been_hit_e0000);
-		
-		setDecVelButtonLayoutParams();
-		setIncVelButtonLayoutParams();
 
+					GL2JNILib.fire(centerX-x,centerY-y);
+					gameEngineView.game.fired = true;
+					break;
+					
+				case MotionEvent.ACTION_MOVE:
+					gameEngineView.InitVelX = x;
+					gameEngineView.InitVelY = y;
+					
+					int xsquared = (centerX -gameEngineView.InitVelX)*(centerX - gameEngineView.InitVelX);
+					int ysquared = (centerY -gameEngineView.InitVelY)*(centerY - gameEngineView.InitVelY);
+					
+					double launchImpulse = Math.sqrt(xsquared + ysquared);
+					velTextView.setText("Velocity: " + launchImpulse);
+					break;
+				}
+
+			
+
+				
+				return true;
+			}
+		});
+		
+		setResetButtonLayoutParams();
+		setZoomInButtonLayoutParams();
+		setZoomOutButtonLayoutParams();
+		
+		
+		
 		topLevelView.addView(gameEngineView);
-		topLevelView.addView(fireButton);
-		topLevelView.addView(incVelButton);
-		topLevelView.addView(decVelButton);
+		topLevelView.addView(zoomIn);
+		topLevelView.addView(zoomOut);
+		topLevelView.addView(resetShip);
 		topLevelView.addView(velTextView);
+		
 	}
 
-	private void setIncVelButtonLayoutParams() {
+
+
+
+
+	private void setResetButtonLayoutParams() {
 		LayoutParams params2 = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 		params2.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
 		params2.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-		//params2.addRule(RelativeLayout.RIGHT_OF,fireButton);
-		incVelButton.setLayoutParams(params2);
+		this.resetShip.setLayoutParams(params2);
+	}
+	
+	private void setZoomInButtonLayoutParams() {
+		LayoutParams params2 = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		params2.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+		params2.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+		this.zoomIn.setLayoutParams(params2);
 	}
 
-	private void setDecVelButtonLayoutParams() {
+	private void setZoomOutButtonLayoutParams() {
 		LayoutParams params1 = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 		params1.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-		params1.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-		//params1.addRule(RelativeLayout.RIGHT_OF,fireButton);
-		decVelButton.setLayoutParams(params1);
+		params1.addRule(RelativeLayout.LEFT_OF, 101);
+		this.zoomOut.setLayoutParams(params1);
 	}
+	
 
 	private TextView createNewVelTextView() {
 		TextView velTextView = new TextView(context);
-		velTextView.setText("Velocity: " + velocity);
+		double launchImpulse = Math.sqrt(gameEngineView.InitVelX*gameEngineView.InitVelX + gameEngineView.InitVelY*gameEngineView.InitVelY);
+		velTextView.setText("Velocity: " + launchImpulse);
 		return velTextView;
 	}
+	
 
-	private Button createNewDecVelButton() {
 
+	private Button createNewZoomOutButton() {
 		Button b = new Button(context);
-		b.setText("dec");
+		b.setText("z out");
 		b.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				velocity -=1;
-				velTextView.setText("Velocity: " + velocity);
-
+				gameEngineView.zoom(0.5);
 			}
 		});
 		return b;
 	}
 
-	private Button createNewIncVelButton() {
+
+	private Button createResetShipButton() {
 		Button b = new Button(context);
-		b.setText("inc");
+		b.setText("reset");
 		b.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				velocity += 1;
-				velTextView.setText("Velocity: " + velocity);
-
+				//GL2JNILib.reset();
+				//gameEngineView = new GameEngineView(context);
+				gameEngineView.init(context);
 			}
 		});
 		return b;
 	}
 
-	private Button createFireButton() {
+
+	private Button createNewZoomInButton() {
 		Button b = new Button(context);
-		b.setText("fire");
+		b.setText("z in");
+		b.setId(101);
 		b.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				GL2JNILib.fire(velocity);
+				gameEngineView.zoom(2);
 			}
 		});
 		return b;
 	}
+
 
 	public View getTopLevelView() {
 		return topLevelView;

@@ -1,12 +1,8 @@
 /home/jvarley/android-ndk-r8e/samples/android-ndk/hello-gl2/obj/local/armeabi/objs/gl2jni/missilecommand/missilecommand.o: \
  /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/missilecommand.cpp \
  /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/missilecommand.h \
- /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/spaceman.h \
- /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/GLES2/gl2.h \
- /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/GLES2/gl2platform.h \
- /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/KHR/khrplatform.h \
- /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/stdint.h \
- /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stddef.h \
+ /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/chipmunk.h \
+ /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stdlib.h \
  /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/_cprolog.h \
  /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/config/features.h \
  /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/_stlport_version.h \
@@ -18,23 +14,20 @@
  /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/config/_gcc.h \
  /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/config/stl_confix.h \
  /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/config/_native_headers.h \
- /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/_epilog.h \
- /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/_config_compat_post.h \
- /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/sys/_types.h \
- /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/machine/_types.h \
- /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/GLES2/gl2ext.h \
- /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/chipmunk.h \
- /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stdlib.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/../include/stdlib.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/sys/cdefs.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/sys/cdefs_elf.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/android/api-level.h \
+ /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stddef.h \
  /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/string.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/../include/string.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/malloc.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/alloca.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/strings.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/sys/types.h \
+ /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/stdint.h \
+ /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/sys/_types.h \
+ /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/machine/_types.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/linux/posix_types.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/linux/stddef.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/linux/compiler.h \
@@ -44,6 +37,8 @@
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/machine/kernel.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/sys/sysmacros.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/memory.h \
+ /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/_epilog.h \
+ /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/_config_compat_post.h \
  /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/math.h \
  /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/../include/math.h \
  /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/limits.h \
@@ -180,17 +175,9 @@
 
 /home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/missilecommand.h:
 
-/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/spaceman.h:
+/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/chipmunk.h:
 
-/home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/GLES2/gl2.h:
-
-/home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/GLES2/gl2platform.h:
-
-/home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/KHR/khrplatform.h:
-
-/home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/stdint.h:
-
-/home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stddef.h:
+/home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stdlib.h:
 
 /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/_cprolog.h:
 
@@ -214,20 +201,6 @@
 
 /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/config/_native_headers.h:
 
-/home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/_epilog.h:
-
-/home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/_config_compat_post.h:
-
-/home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/sys/_types.h:
-
-/home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/machine/_types.h:
-
-/home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/GLES2/gl2ext.h:
-
-/home/jvarley/android-ndk-r8e/build/core/../../samples/android-ndk/hello-gl2/jni/missilecommand/../chipmunk/include/chipmunk/chipmunk.h:
-
-/home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stdlib.h:
-
 /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/../include/stdlib.h:
 
 /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/sys/cdefs.h:
@@ -235,6 +208,8 @@
 /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/sys/cdefs_elf.h:
 
 /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/android/api-level.h:
+
+/home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stddef.h:
 
 /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/string.h:
 
@@ -247,6 +222,12 @@
 /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/strings.h:
 
 /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/sys/types.h:
+
+/home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/stdint.h:
+
+/home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/sys/_types.h:
+
+/home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/machine/_types.h:
 
 /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/linux/posix_types.h:
 
@@ -265,6 +246,10 @@
 /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/sys/sysmacros.h:
 
 /home/jvarley/android-ndk-r8e/platforms/android-14/arch-arm/usr/include/memory.h:
+
+/home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/_epilog.h:
+
+/home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/stl/_config_compat_post.h:
 
 /home/jvarley/android-ndk-r8e/sources/cxx-stl/stlport/stlport/math.h:
 

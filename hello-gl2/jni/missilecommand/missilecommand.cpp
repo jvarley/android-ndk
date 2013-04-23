@@ -5,54 +5,42 @@
 
 using namespace std;
 
-int POINTS_PER_CITY = 6;
 cpSpace *space = cpSpaceNew();
 
 Missilecommand::Missilecommand()
 {
-    hasSpaceman1 = false;
     hasFired = false;
-
+    missionComplete = false;
+    missionCompleteDistance = 0;
 }
 
-void Missilecommand::fire(float velocity)
+void Missilecommand::reset()
 {
-
-    cpBodySetVel(spaceman, {velocity,0});
-    hasFired = true;
+    hasFired = false;
+    missionComplete = false;
+    missionCompleteDistance = 0;
+    //cpSpaceDestroy(space);
+    //cpSpaceFree(space);
+    space = cpSpaceNew();
+    cpBodies.clear();
+    bodyMasses.clear();
+    
 
 }
 
-void Missilecommand::createGame() {
-    cpBody* planetBody= cpBodyNew(10,10);
-    //cpBody* planetBody= cpBodyNew(INFINITY, INFINITY);
-    cpBodySetAngVel(planetBody, 0.2f);
-    float xf = 240;
-    float yf = 400;
-    cpVect p = {xf,yf};
-    cpBodySetPos(planetBody,p );
-
-    cpSpaceAddBody(space,planetBody);
-
-    cpBodies.push_back(planetBody);
-
-
-    cpBody* spacemanBody= cpBodyNew(10,10);
-    cpBodySetAngVel(spacemanBody, 0.2f);
-    float spaceManxf = 200.0;
-    float spaceManyf = 200.0;
-    cpVect pSpaceMan = {spaceManxf,spaceManyf};
-    cpBodySetPos(spacemanBody,pSpaceMan );
-    cpSpaceAddBody(space,spacemanBody);
-    cpBodySetVelLimit(spacemanBody, 1000.0);
-
-
-    spaceman = spacemanBody;
-    hasSpaceman1 = true;
+void Missilecommand::fire(int x, int y)
+{
+    if(!hasFired){
+        float xf = x;
+        float yf = y;
+        cpBodySetVel(spaceman, {xf,yf});
+    }
+    
+    hasFired = true;
 }
 
 void Missilecommand::updateGame() {
-    if(hasSpaceman1 && hasFired){
+    if(hasFired){
         cpBodyApplyImpulse(spaceman, getImpulseOnSpaceman(),{0,0});
     }
     
@@ -65,35 +53,84 @@ cpVect Missilecommand::getImpulseOnSpaceman(){
         cpBody* body = getBody(j);
         cpVect delta = cpvsub(spaceman->p,body->p);
         cpFloat sqdist = cpvlengthsq(delta);
-        impulse = cpvadd(impulse, cpvmult(delta,-200000.0/(sqdist*cpfsqrt(sqdist))));
+        cpFloat planetMass = bodyMasses.at(j);
+        cpFloat spacemanMass = cpBodyGetMass(spaceman);
+        impulse = cpvadd(impulse, cpvmult(delta,-1000.0*planetMass*spacemanMass/(sqdist*cpfsqrt(sqdist))));
     }
     return impulse;
 }
-void Missilecommand::handleTouch(float x, float y) {
-
-    
-}
-
 
 int Missilecommand::getNumBodies() {
     return cpBodies.size();
-}
-
-int Missilecommand::getPointsPerCity() {
-    return POINTS_PER_CITY;
 }
 
 cpBody* Missilecommand::getBody(int i) {
     return cpBodies.at(i);
 }
 
+void Missilecommand::addBody(int x, int y, int r, int mass) {
+    //cpBody* planetBody= cpBodyNew(10,10);
+    cpBody* planetBody= cpBodyNew(INFINITY, INFINITY);
+    
+    float xf = x;
+    float yf = y;
+    cpVect p = {xf,yf};
+    cpFloat moment = cpMomentForCircle(mass, 0, r, cpvzero);
+
+    //cpBody* planetBody= cpBodyNew(mass,moment);
+
+    cpBodySetPos(planetBody,p );
+    //cpBodySetAngVel(planetBody, 0.2f);
+    //cpSpaceAddBody(space,planetBody); // don't add or it will start to moce
+
+    cpShape *shape = cpSpaceAddShape(space, cpCircleShapeNew(planetBody, r, cpvzero));
+    cpBodies.push_back(planetBody);
+    bodyMasses.push_back(mass);
+}
+
+void Missilecommand::addEndMoon(int x, int y, int r, int mass) {
+    missionCompleteDistance += r;
+    float endMoonxf = x;
+    float endMoonyf = y;
+    cpVect pEndMoon = {endMoonxf,endMoonyf};
+    cpFloat moment = cpMomentForCircle(mass, 0, r, cpvzero);
+
+    //cpBody* endMoonBody= cpBodyNew(mass,moment);
+    cpBody* endMoonBody= cpBodyNew(INFINITY, INFINITY);
+
+    cpBodySetPos(endMoonBody,pEndMoon );
+    //cpSpaceAddBody(space,endMoonBody);
+
+    cpShape *shape = cpSpaceAddShape(space, cpCircleShapeNew(endMoonBody, r, cpvzero));
+    endMoon = endMoonBody;
+    cpBodies.push_back(endMoonBody);
+    bodyMasses.push_back(mass);
+}
+
+void Missilecommand::addSpaceMan(int x, int y, int r, int mass) {
+    missionCompleteDistance += r + 2;
+    float spaceManxf = x;
+    float spaceManyf = y;
+    cpVect pSpaceMan = {spaceManxf,spaceManyf};
+    cpFloat moment = cpMomentForCircle(mass, 0, r, cpvzero);
+
+    cpBody* spacemanBody= cpBodyNew(mass,moment);
+
+    cpBodySetAngVel(spacemanBody, 0.2f);
+    cpBodySetPos(spacemanBody,pSpaceMan);
+
+    cpSpaceAddBody(space,spacemanBody);
+    cpBodySetVelLimit(spacemanBody, 1000.0);
+
+    cpShape *shape = cpSpaceAddShape(space, cpCircleShapeNew(spacemanBody, r, cpvzero));
+
+    spaceman = spacemanBody;
+}
+
 cpBody* Missilecommand::getSpaceman() {
     return spaceman;
 }
 
-bool Missilecommand::hasSpaceman() {
-    return hasSpaceman1;
-}
 
 
 

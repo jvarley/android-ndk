@@ -22,11 +22,28 @@
     package="com.android.gl2jni">
     <application
             android:label="@string/gl2jni_activity">
-        <activity android:name="GL2JNIActivity"
+        <activity android:name=".GameActivity"
                 android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             	android:launchMode="singleTask"
-            	android:configChanges="orientation|keyboardHidden">
-            <intent-filter>
+            	android:configChanges="orientation|keyboardHidden"
+            	android:screenOrientation="landscape">
+            
+        </activity>
+        
+         <activity android:name="ScoreScreenActivity"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            	android:launchMode="singleTask"
+            	android:configChanges="orientation|keyboardHidden"
+            	android:screenOrientation="landscape">
+        </activity>
+        
+        <activity android:name="MainMenuActivity"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            	android:launchMode="singleTask"
+            	android:configChanges="orientation|keyboardHidden"
+            	android:screenOrientation="landscape">
+            	
+            	<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
