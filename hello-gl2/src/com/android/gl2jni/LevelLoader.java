@@ -16,7 +16,7 @@ public class LevelLoader {
 	
 	int moonX = 100;
 	int moonY = 400;
-	int moonR = 50;
+	int moonR = 100;
 	int moonM = 100;
 
 	public LevelLoader(Context context, Game game){
@@ -31,14 +31,14 @@ public class LevelLoader {
 
 		}
 		else if(i ==2){
-			createPlanet(200,300,50,100,R.drawable.planet1);
+			createPlanet(400,300,150,100,R.drawable.planet1);
 		}
 		else if(i ==3){
-			createPlanet(200,300,50,100,R.drawable.planet1);
-			createPlanet(500,300,50,100,R.drawable.mercury);
+			createPlanet(1300,300,150,500,R.drawable.planet1);
+			createPlanet(500,1500,150,500,R.drawable.mercury);
 		}
 		else if(i ==4){
-			createPlanet(200,300,50,100,R.drawable.planet1);
+			createPlanet(400,300,50,100,R.drawable.planet1);
 		}
 		
 		createSpaceMan(spaceManX,spaceManY,spaceManR,spaceManM);

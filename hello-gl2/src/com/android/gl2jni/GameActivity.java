@@ -9,7 +9,7 @@ public class GameActivity extends Activity {
 	@Override protected void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 		
-		GameViewBuilder gvb = new GameViewBuilder(this);
+		GameViewSubViewsBuilder gvb = new GameViewSubViewsBuilder(this);
 		setContentView(gvb.getTopLevelView());
 	}
 
@@ -21,7 +21,7 @@ public class GameActivity extends Activity {
 	@Override 
 	protected void onResume() {
 		super.onResume();
-		GameViewBuilder gvb = new GameViewBuilder(this);
+		GameViewSubViewsBuilder gvb = new GameViewSubViewsBuilder(this);
 		setContentView(gvb.getTopLevelView());
 	}
 }
